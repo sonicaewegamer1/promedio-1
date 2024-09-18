@@ -37,8 +37,31 @@ namespace promedio_1
         }
     }
 
-        //private player player; hace referencia a que estoy creando una variable llamada player,de tipo player 
+    //private player player; hace referencia a que estoy creando una variable llamada player,de tipo player 
+
+    //---------------------------divición temporal---------------------------------------------------------------(solo para vacilitar mi navegación)
+    internal class Player
+    {
+        public string Name { get; set; }  // Nombre del jugador
+        public int Health { get; set; }  // Vida del jugador
+        public int Mana { get; set; }  // Maná del jugador
+        public int Damage { get; set; }  // Daño que el jugador puede hacer
+
+        // Método para mostrar el estado del jugador
+        public void ShowStatus()
+        {
+            Console.WriteLine($"Jugador: {Name}, Vida: {Health}, Maná: {Mana}, Daño: {Damage}");
+            //leerá los datos que presentamos arriba para ver cuanta vida y dem´s datos tenemos en ese momento, writeline es para que se escriba en la consola
+        }
+
+        // Método para usar un item que recupera vida o maná
+        public void UseItem(Item item)
+        {
+            Health += item.HealthRestore;  // Recupera vida
+            Mana += item.ManaRestore;  // Recupera maná
+            Console.WriteLine($"Usaste {item.Name}. Vida actual: {Health}, Maná actual: {Mana}");
+        }
+    }
 
 
-    //clase 
-    
+//---------------------------divición temporal---------------------------------------------------------------(solo para vacilitar mi navegación)
