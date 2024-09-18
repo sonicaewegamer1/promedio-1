@@ -64,4 +64,24 @@ namespace promedio_1
     }
 
 
-//---------------------------divición temporal---------------------------------------------------------------(solo para vacilitar mi navegación)
+    //---------------------------divición temporal---------------------------------------------------------------(solo para vacilitar mi navegación)
+    
+    // Clase Enemy, que representa a los enemigos del juego
+    internal class Enemy
+    {
+        public string Name { get; private set; }  // Nombre del enemigo
+        public int Health { get; private set; }  // Vida del enemigo
+        public int Damage { get; private set; }  // Daño que puede hacer el enemigo
+        public string Type { get; private set; }  // Tipo de enemigo (Melee o Rango)
+
+        // Constructor que inicializa al enemigo con sus atributos
+        public Enemy(string name, int health, int damage, string type)
+        {
+            Name = name;  // Asigna el nombre
+            Health = health;  // Asigna la vida
+            Damage = damage;  // Asigna el daño
+            Type = type;  // Asigna el tipo de ataque
+        }
+    }
+      //---------------------------divición temporal---------------------------------------------------------------(solo para vacilitar mi navegación)
+    
