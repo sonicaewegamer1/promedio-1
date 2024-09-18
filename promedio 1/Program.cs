@@ -23,7 +23,7 @@ namespace promedio_1
     {
         // Jugador que será controlado por el usuario
         private Player player;
-        // Lista de enemigos en el juego
+        // Lista de enemigos
         private List<Enemy> enemies;
         // Lista de items disponibles en el juego
         private List<Item> items;
@@ -42,24 +42,24 @@ namespace promedio_1
     //---------------------------divición temporal---------------------------------------------------------------(solo para vacilitar mi navegación)
     internal class Player
     {
-        public string Name { get; set; }  // Nombre del jugador
-        public int Health { get; set; }  // Vida del jugador
-        public int Mana { get; set; }  // Maná del jugador
-        public int Damage { get; set; }  // Daño que el jugador puede hacer
+        public string Name { get; set; }  
+        public int Health { get; set; }  
+        public int Mana { get; set; }  
+        public int Damage { get; set; } 
 
         // Método para mostrar el estado del jugador
         public void ShowStatus()
         {
-            Console.WriteLine($"Jugador: {Name}, Vida: {Health}, Maná: {Mana}, Daño: {Damage}");
+            Console.WriteLine($"TU NOMBRE: {Name}, TU VIDA: {Health}, TU MANÁ: {Mana}, TU DAÑO: {Damage}");
             //leerá los datos que presentamos arriba para ver cuanta vida y dem´s datos tenemos en ese momento, writeline es para que se escriba en la consola
         }
 
         // Método para usar un item que recupera vida o maná
-        public void UseItem(Item item)
+        public void ITem usage(Item item)
         {
-            Health += item.HealthRestore;  // Recupera vida
-            Mana += item.ManaRestore;  // Recupera maná
-            Console.WriteLine($"Usaste {item.Name}. Vida actual: {Health}, Maná actual: {Mana}");
+            Health += item.HealthRestore;  
+            Mana += item.ManaRestore;  
+            Console.WriteLine($"EQUIPASTE {item.Name}. tu vida restante: {Health}, tu Maná restante: {Mana}");
         }
     }
 
@@ -69,19 +69,34 @@ namespace promedio_1
     // Clase Enemy, que representa a los enemigos del juego
     internal class Enemy
     {
-        public string Name { get; private set; }  // Nombre del enemigo
-        public int Health { get; private set; }  // Vida del enemigo
-        public int Damage { get; private set; }  // Daño que puede hacer el enemigo
-        public string Type { get; private set; }  // Tipo de enemigo (Melee o Rango)
+        public string EnemyName { get; private set; }  // Nombre del enemigo
+        public int EnemyHealth { get; private set; }  // Vida del enemigo
+        public int EnemyDamage { get; private set; }  // Daño que puede hacer el enemigo
+        public string EnemyType { get; private set; }  // Tipo de enemigo (Melee o Rango)
 
         // Constructor que inicializa al enemigo con sus atributos
-        public Enemy(string name, int health, int damage, string type)
+        public Enemy(string enemyname, int enemyhealth, int enemydamage, string enemytype)
         {
-            Name = name;  // Asigna el nombre
-            Health = health;  // Asigna la vida
-            Damage = damage;  // Asigna el daño
-            Type = type;  // Asigna el tipo de ataque
+            EnemynameName = enemyname;  // Asigna el nombre
+            EnemynameHealth = enemyhealth;  // Asigna la vida
+            EnemynameDamage = enemydamage;  // Asigna el daño
+            EnemynameType = enemytype;  // Asigna el tipo de ataque
         }
     }
-      //---------------------------divición temporal---------------------------------------------------------------(solo para vacilitar mi navegación)
-    
+    //---------------------------divición temporal---------------------------------------------------------------(solo para vacilitar mi navegación)
+    // Clase Item
+    internal class Item
+    {
+        public string Name { get; private set; }  // Nombre del item
+        public int ManaRestore { get; private set; }  // Cuánto maná recupera el item
+        public int HealthRecover { get; private set; }  // Cuánta vida recupera el item
+
+        // Constructor que inicializa el item con sus propiedades
+        public Item(string name, int manaRestore, int healthRecover)
+        {
+            Name = name;  // Asigna el nombre del item
+            ManaRestore = manaRestore;  // Asigna la cantidad de maná que recupera
+            HealthRecover = healthRecover;  // Asigna la cantidad de vida que recupera
+        }
+    }
+}
